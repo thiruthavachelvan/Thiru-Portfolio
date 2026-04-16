@@ -2,57 +2,123 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Server, Database, Wrench } from 'lucide-react';
 
-const Skills = () => {
-  const skillCategories = [
-    { title: "Languages", icon: <Code className="text-primary-blue w-6 h-6" />, skills: ["JavaScript (ES6+)", "Java", "HTML5", "CSS3"] },
-    { title: "Frameworks & Libraries", icon: <Server className="text-primary-neon w-6 h-6" />, skills: ["React.js", "Node.js", "Express.js", "Tailwind CSS"] },
-    { title: "Databases", icon: <Database className="text-blue-400 w-6 h-6" />, skills: ["MongoDB", "MySQL"] },
-    { title: "Tools", icon: <Wrench className="text-purple-400 w-6 h-6" />, skills: ["Git & GitHub", "Postman", "REST APIs", "Debugging & Testing"] }
-  ];
+const categories = [
+  {
+    title: 'Languages',
+    icon: <Code size={22} />,
+    gradient: 'from-brand-orange to-brand-pink',
+    glow: 'group-hover:shadow-brand-orange/25',
+    skills: [
+      { name: 'JavaScript (ES6+)', level: 90 },
+      { name: 'Java', level: 80 },
+      { name: 'HTML5', level: 95 },
+      { name: 'CSS3', level: 88 },
+    ],
+  },
+  {
+    title: 'Frameworks & Libraries',
+    icon: <Server size={22} />,
+    gradient: 'from-brand-pink to-brand-purple',
+    glow: 'group-hover:shadow-brand-pink/25',
+    skills: [
+      { name: 'React.js', level: 88 },
+      { name: 'Node.js', level: 82 },
+      { name: 'Express.js', level: 80 },
+      { name: 'Tailwind CSS', level: 90 },
+    ],
+  },
+  {
+    title: 'Databases',
+    icon: <Database size={22} />,
+    gradient: 'from-brand-purple to-brand-blue',
+    glow: 'group-hover:shadow-brand-purple/25',
+    skills: [
+      { name: 'MongoDB', level: 85 },
+      { name: 'MySQL', level: 75 },
+    ],
+  },
+  {
+    title: 'Tools & Practices',
+    icon: <Wrench size={22} />,
+    gradient: 'from-brand-blue to-brand-cyan',
+    glow: 'group-hover:shadow-brand-blue/25',
+    skills: [
+      { name: 'Git & GitHub', level: 88 },
+      { name: 'REST APIs', level: 85 },
+      { name: 'Postman', level: 80 },
+      { name: 'Debugging', level: 78 },
+    ],
+  },
+];
 
-  return (
-    <section id="skills" className="py-20 px-6 bg-dark-bg/50">
-      <div className="max-w-4xl mx-auto">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="flex items-center gap-4 mb-12"
-        >
-          <span className="text-primary-blue font-mono text-xl">02.</span>
-          <h2 className="text-3xl md:text-4xl font-bold">Skills & Technologies</h2>
-          <div className="h-[1px] bg-white/10 flex-grow ml-4"></div>
-        </motion.div>
+const SkillBar = ({ name, level, gradient, delay }) => (
+  <div className="mb-4 last:mb-0">
+    <div className="flex justify-between text-sm mb-1.5">
+      <span className="text-gray-300 font-medium">{name}</span>
+      <span className="text-gray-500 font-mono">{level}%</span>
+    </div>
+    <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+      <motion.div
+        initial={{ width: 0 }}
+        whileInView={{ width: `${level}%` }}
+        viewport={{ once: true }}
+        transition={{ duration: 1, delay, ease: 'easeOut' }}
+        className={`h-full bg-gradient-to-r ${gradient} rounded-full`}
+      />
+    </div>
+  </div>
+);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {skillCategories.map((category, index) => (
-            <motion.div 
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ delay: index * 0.1 }}
-              className="glass-panel p-6 hover:-translate-y-2 transition-transform duration-300"
-            >
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-white/5 rounded-lg border border-white/10">
-                  {category.icon}
-                </div>
-                <h3 className="text-xl font-bold">{category.title}</h3>
+const Skills = () => (
+  <section id="skills" className="py-24 px-6 relative">
+    <div className="blob w-80 h-80 bg-brand-blue bottom-0 left-0 opacity-15"></div>
+    <div className="max-w-5xl mx-auto relative z-10">
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+        className="flex items-center gap-4 mb-14"
+      >
+        <span className="text-brand-pink font-mono font-bold text-lg">02.</span>
+        <h2 className="text-3xl md:text-5xl font-black">Tech <span className="text-gradient-cool">Stack</span></h2>
+        <div className="h-px bg-gradient-to-r from-brand-pink/50 to-transparent flex-grow"></div>
+      </motion.div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {categories.map((cat, i) => (
+          <motion.div
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: i * 0.1 }}
+            className={`glass-card p-7 group hover:scale-[1.02] hover:shadow-2xl ${cat.glow} transition-all duration-400 hover:border-white/20`}
+          >
+            <div className="flex items-center gap-3 mb-6">
+              <div className={`p-2.5 rounded-xl bg-gradient-to-br ${cat.gradient} shadow-lg`}>
+                <span className="text-white">{cat.icon}</span>
               </div>
-              <ul className="flex flex-wrap gap-3">
-                {category.skills.map((skill, idx) => (
-                  <li key={idx} className="bg-white/5 border border-white/10 px-4 py-2 rounded-full text-sm text-gray-300 hover:text-white hover:border-primary-blue/50 transition-colors">
-                    {skill}
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
+              <h3 className="text-lg font-bold text-white">{cat.title}</h3>
+            </div>
+            {cat.skills.map((s, j) => (
+              <SkillBar key={s.name} {...s} gradient={cat.gradient} delay={0.2 + j * 0.08} />
+            ))}
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Scrolling marquee strip */}
+      <motion.div 
+        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+        className="mt-12 overflow-hidden border border-white/5 rounded-2xl py-4 relative"
+      >
+        <div className="flex w-max animate-marquee gap-8 px-4">
+          {['React', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript', 'Java', 'HTML5', 'CSS3', 'Tailwind CSS', 'Git', 'REST APIs', 'MySQL',
+            'React', 'Node.js', 'MongoDB', 'Express.js', 'JavaScript', 'Java', 'HTML5', 'CSS3', 'Tailwind CSS', 'Git', 'REST APIs', 'MySQL'].map((t, i) => (
+            <span key={i} className="whitespace-nowrap text-gray-500 font-mono text-sm hover:text-white transition-colors">{t}</span>
           ))}
         </div>
-      </div>
-    </section>
-  );
-};
+      </motion.div>
+    </div>
+  </section>
+);
 
 export default Skills;

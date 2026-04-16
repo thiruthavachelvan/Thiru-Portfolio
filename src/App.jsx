@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -9,18 +10,28 @@ import Education from './components/Education';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+};
+
 function App() {
   return (
-    <div className="bg-dark-bg min-h-screen text-white font-sans selection:bg-primary-neon/30 selection:text-white">
+    <div className="bg-dark-bg min-h-screen text-white font-sans overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Skills />
-        <Project />
-        <Experience />
-        <Education />
-        <Contact />
+        {[About, Skills, Project, Experience, Education, Contact].map((Section, i) => (
+          <motion.div
+            key={i}
+            variants={sectionVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+          >
+            <Section />
+          </motion.div>
+        ))}
       </main>
       <Footer />
     </div>
