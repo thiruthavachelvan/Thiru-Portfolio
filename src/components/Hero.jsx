@@ -37,11 +37,9 @@ const Hero = () => {
         {/* Name */}
         <motion.h1 
           initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.15 }}
-          className="text-5xl sm:text-7xl md:text-8xl font-black tracking-tight leading-none mb-6"
+          className="text-3xl sm:text-5xl md:text-6xl font-black tracking-tight leading-tight mb-6 text-gradient-primary whitespace-nowrap"
         >
-          <span className="text-white">Thiruthava</span>
-          <br />
-          <span className="text-gradient-primary">chelvan K</span>
+          Thiruthavachelvan K
         </motion.h1>
 
         {/* Role */}

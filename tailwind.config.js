@@ -13,12 +13,12 @@ export default {
           glass: 'rgba(255,255,255,0.04)',
         },
         brand: {
-          orange: '#f97316',
-          pink: '#ec4899',
-          purple: '#a855f7',
-          blue: '#3b82f6',
-          cyan: '#06b6d4',
-          green: '#22c55e',
+          orange: '#00f5c4',
+          pink: '#a78bfa',
+          purple: '#7c3aed',
+          blue: '#6366f1',
+          cyan: '#38bdf8',
+          green: '#10b981',
         }
       },
       fontFamily: {
