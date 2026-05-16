@@ -3,7 +3,7 @@ import { Link } from 'react-scroll';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navLinks = ['Home', 'About', 'Skills', 'Project', 'Experience', 'Education', 'Contact'];
+const navLinks = ['Home', 'About', 'Skills', 'Projects', 'Experience', 'Education', 'Contact'];
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);

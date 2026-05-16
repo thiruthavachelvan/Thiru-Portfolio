@@ -63,9 +63,9 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
-          <Link to="project" smooth duration={500} offset={-80}>
+          <Link to="projects" smooth duration={500} offset={-80}>
             <button className="group flex items-center gap-2 px-8 py-4 rounded-full font-bold text-base bg-gradient-to-r from-brand-orange via-brand-pink to-brand-purple text-white shadow-lg hover:shadow-brand-pink/40 hover:-translate-y-1 transition-all duration-300">
-              View Project
+              View Projects
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
             </button>
           </Link>

@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Sparkles, Terminal, Globe } from 'lucide-react';
 
 const stats = [
-  { label: 'Projects', value: '1+', color: 'from-brand-orange to-brand-pink' },
+  { label: 'Projects', value: '2+', color: 'from-brand-orange to-brand-pink' },
   { label: 'Internship', value: '1', color: 'from-brand-pink to-brand-purple' },
   { label: 'CGPA', value: '7.36', color: 'from-brand-purple to-brand-blue' },
 ];
