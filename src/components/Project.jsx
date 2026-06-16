@@ -1,9 +1,53 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, ChevronDown, CheckCircle, Users, Activity, Hotel, MessageSquare } from 'lucide-react';
+import { ExternalLink, ChevronDown, CheckCircle, Users, Activity, Hotel, MessageSquare, Briefcase } from 'lucide-react';
 import { FaGithub } from 'react-icons/fa';
 
 const projectsData = [
+  {
+    id: 'hireverse',
+    title: 'HireVerse',
+    subtitle: 'Professional Networking & Job Portal Platform',
+    status: 'in-progress',
+    description: 'A full-stack, production-deployed web application that bridges candidates and companies through a LinkedIn-inspired social networking experience with a complete job hiring pipeline. Features social feeds, connection requests, job applications, multi-round interview tracking, real-time job alerts, and a full admin verification system.',
+    tags: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT', 'Tailwind CSS'],
+    githubLinks: [
+      { label: 'Frontend', url: 'https://github.com/thiruthavachelvan/Hireverse-Frontend' },
+      { label: 'Backend', url: 'https://github.com/thiruthavachelvan/Hireverse-Backend' }
+    ],
+    frontendLink: 'https://hire-verse.netlify.app',
+    backendLink: 'https://hireverse-backend-yu03.onrender.com',
+    icon: <Briefcase className="w-16 h-16 text-brand-blue mb-3 drop-shadow-[0_0_20px_rgba(99,102,241,0.7)]" />,
+    iconLabel: 'HIREVERSE',
+    iconSub: 'Professional Networking & Job Portal',
+    bgGradient: 'from-brand-blue/15 via-brand-cyan/10 to-brand-purple/15',
+    bannerGradient: 'from-brand-blue via-brand-cyan to-brand-purple',
+    textColor: 'text-brand-blue',
+    workflows: [
+      {
+        title: 'Professional (Candidate)',
+        icon: <Users size={18} />,
+        color: 'from-brand-blue to-brand-cyan',
+        credential: 'Register as Professional',
+        items: ['Social feed — post, like & comment', 'Send & receive connection requests', 'Browse companies & active job listings', 'Apply with custom form + PDF résumé', 'Track interview pipeline round-by-round', 'Real-time job alert popups from followed companies'],
+      },
+      {
+        title: 'Company (Recruiter)',
+        icon: <Activity size={18} />,
+        color: 'from-brand-cyan to-brand-purple',
+        credential: 'Register as Company (Needs Admin Approval)',
+        items: ['Post & manage job listings', 'Define custom interview rounds per job', 'Review, advance or reject applicants', 'Broadcast job openings to followers\' feed', 'Announce upcoming hiring plans', 'Auto-notify all professional followers'],
+      },
+      {
+        title: 'Admin Panel',
+        icon: <CheckCircle size={18} />,
+        color: 'from-brand-purple to-brand-blue',
+        credential: 'Admin credentials required',
+        items: ['Verify & approve company registrations', 'View all users, companies & jobs', 'Monitor platform-wide activity', 'Reject unverified company accounts'],
+      },
+    ],
+    note: 'Currently under active development. Basic version is live — new features including advanced analytics, real-time WebSocket notifications, and enhanced recruiter tools are in progress.'
+  },
   {
     id: 'whatsapp-clone',
     title: 'WhatsApp Web Clone',
@@ -118,8 +162,15 @@ const Project = () => {
             <motion.div 
               key={project.id}
               initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: index * 0.1 }}
-              className="glass-card overflow-hidden group"
+              className="glass-card overflow-hidden group relative"
             >
+              {/* In Progress badge */}
+              {project.status === 'in-progress' && (
+                <div className="absolute top-4 right-4 z-20 flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue/20 border border-brand-blue/40 text-brand-blue text-xs font-bold tracking-wide">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse"></span>
+                  In Progress
+                </div>
+              )}
               {/* Banner gradient strip */}
               <div className={`h-2 w-full bg-gradient-to-r ${project.bannerGradient}`}></div>
 
