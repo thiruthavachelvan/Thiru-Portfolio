@@ -31,6 +31,16 @@ const Loader = ({ onEnter }) => {
     // Reveal Title Card
     setTimeout(() => {
       setShowMainTitle(true);
+    }, 3500);
+
+    // Show Enter Button
+    setTimeout(() => {
+      setShowEnterBtn(true);
+    }, 4500);
+  }, []);
+
+  useEffect(() => {
+    if (showMainTitle) {
       gsap.fromTo(
         '.loader-title',
         { opacity: 0, y: 30, letterSpacing: '0.4em' },
@@ -41,18 +51,18 @@ const Loader = ({ onEnter }) => {
         { opacity: 0 },
         { opacity: 0.6, duration: 1.5, delay: 0.5 }
       );
-    }, 3500);
+    }
+  }, [showMainTitle]);
 
-    // Show Enter Button
-    setTimeout(() => {
-      setShowEnterBtn(true);
+  useEffect(() => {
+    if (showEnterBtn) {
       gsap.fromTo(
         '.loader-enter-btn',
         { opacity: 0, scale: 0.9 },
         { opacity: 1, scale: 1, duration: 1, ease: 'back.out(1.7)' }
       );
-    }, 4500);
-  }, []);
+    }
+  }, [showEnterBtn]);
 
   const handleEnterExhibition = () => {
     const tl = gsap.timeline({
