@@ -1,83 +1,162 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Terminal, Globe } from 'lucide-react';
 
 const stats = [
-  { label: 'Projects', value: '2+', color: 'from-brand-orange to-brand-pink' },
-  { label: 'Internship', value: '1', color: 'from-brand-pink to-brand-purple' },
-  { label: 'CGPA', value: '7.36', color: 'from-brand-purple to-brand-blue' },
+  { label: 'Full Stack Developer', value: '2+', sub: 'Years Building', color: '#c9a84c' },
+  { label: 'Problem Solver', value: '3+', sub: 'Full-Stack Projects', color: '#e8c97a' },
+  { label: 'Consistent Learner', value: '2025', sub: 'Batch Graduate', color: '#c9a84c' },
+];
+
+const traits = [
+  { title: 'Clean Code', desc: 'Turning complex problems into simple, beautiful and maintainable solutions.' },
+  { title: 'Problem Solver', desc: 'Focused on creating products that make a real impact in people\'s lives.' },
+  { title: 'Fast Learner', desc: 'Rapidly adapting to new technologies and engineering challenges.' },
+  { title: 'Team Player', desc: 'Building better products through effective collaboration and communication.' },
 ];
 
 const About = () => (
-  <section id="about" className="py-24 px-6 relative">
-    <div className="blob w-72 h-72 bg-brand-pink top-0 right-0 opacity-15"></div>
+  <section id="about" className="py-28 px-6 relative overflow-hidden">
+    {/* Ambient */}
+    <div className="blob w-64 h-64 top-0 right-0" style={{ background: 'rgba(139,26,26,0.12)' }} />
+
     <div className="max-w-5xl mx-auto relative z-10">
-      <motion.div 
+      {/* Hall Header */}
+      <motion.div
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-        className="flex items-center gap-4 mb-14"
+        className="mb-16"
       >
-        <span className="text-brand-orange font-mono font-bold text-lg">01.</span>
-        <h2 className="text-3xl md:text-5xl font-black">About <span className="text-gradient-primary">Me</span></h2>
-        <div className="h-px bg-gradient-to-r from-brand-orange/50 to-transparent flex-grow"></div>
+        <div className="flex items-center gap-3 mb-3">
+          <span className="exhibit-number">Hall 01</span>
+        </div>
+        <h2 className="font-serif text-4xl md:text-6xl font-bold text-cream mb-2">
+          The <span className="gold-text">Creator</span>
+        </h2>
+        <p className="font-mono text-[11px] tracking-[0.25em] text-cream-dim uppercase">Know the person behind the code.</p>
+        <div className="gold-divider mt-5 max-w-xs" />
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        {/* Main about card */}
-        <motion.div 
+      <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
+        {/* Artist Profile Card */}
+        <motion.div
           initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
-          className="md:col-span-2 glass-card p-8 relative overflow-hidden group hover:border-brand-orange/30 transition-all duration-500"
+          className="lg:col-span-3 museum-card p-8 relative spotlight-hover"
         >
-          <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-brand-purple/20 rounded-full blur-3xl group-hover:opacity-60 transition-opacity"></div>
-          <div className="flex items-center gap-3 mb-6">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-brand-orange to-brand-pink">
-              <Sparkles size={20} className="text-white" />
+          {/* Corner ornaments */}
+          <div className="corner-ornament tl" />
+          <div className="corner-ornament tr" />
+          <div className="corner-ornament bl" />
+          <div className="corner-ornament br" />
+
+          <div className="relative z-10">
+            {/* Profile label */}
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-px" style={{ background: 'rgba(201,168,76,0.5)' }} />
+              <span className="hall-label">Artist Profile</span>
+              <div className="w-8 h-px" style={{ background: 'rgba(201,168,76,0.5)' }} />
             </div>
-            <h3 className="text-xl font-bold">Who I Am</h3>
-          </div>
-          <p className="text-gray-300 text-base leading-loose mb-4">
-            I'm a <strong className="text-white">B.Tech Computer Science student (2025 batch)</strong> with hands-on MERN stack experience building real-world web applications from scratch.
-          </p>
-          <p className="text-gray-300 text-base leading-loose">
-            I have a strong foundation in <span className="text-brand-cyan font-semibold">Java</span>, <span className="text-brand-orange font-semibold">REST APIs</span>, <span className="text-brand-pink font-semibold">SDLC</span>, and <span className="text-brand-purple font-semibold">Agile methodologies</span> — passionate about turning complex problems into elegant, scalable solutions.
-          </p>
-          <div className="mt-8 flex items-center gap-3 text-sm text-gray-500">
-            <Globe size={16} />
-            <span>Currently based in Tamil Nadu, India</span>
+
+            {/* Name plate */}
+            <div className="mb-6 pb-6" style={{ borderBottom: '1px solid rgba(201,168,76,0.1)' }}>
+              <h3 className="font-serif text-3xl font-bold text-cream mb-1">Thiruthavachelvan K</h3>
+              <p className="font-mono text-xs tracking-[0.2em] text-gold uppercase">MERN Stack Developer</p>
+            </div>
+
+            {/* Bio */}
+            <p className="font-sans text-cream-muted text-base leading-relaxed mb-4">
+              I'm a <strong className="text-cream">B.Tech Computer Science student (2025 batch)</strong> with hands-on MERN stack
+              experience building real-world web applications from scratch.
+            </p>
+            <p className="font-sans text-cream-muted text-base leading-relaxed mb-6">
+              I have a strong foundation in{' '}
+              <span className="text-gold font-medium">Java</span>,{' '}
+              <span className="text-gold font-medium">REST APIs</span>,{' '}
+              <span className="text-gold font-medium">SDLC</span>, and{' '}
+              <span className="text-gold font-medium">Agile methodologies</span> — passionate about turning
+              complex problems into elegant, scalable solutions.
+            </p>
+
+            {/* Info rows */}
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              {[
+                { label: 'Role', value: 'Full Stack Developer' },
+                { label: 'Location', value: 'Tamil Nadu, India' },
+                { label: 'Speciality', value: 'MERN Stack' },
+                { label: 'Experience', value: '2+ Years' },
+              ].map((item) => (
+                <div key={item.label} className="flex flex-col gap-0.5">
+                  <span className="font-mono text-[9px] tracking-[0.25em] text-cream-dark uppercase">{item.label}</span>
+                  <span className="font-sans text-cream-muted text-sm">{item.value}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Signature */}
+            <div className="mt-8 flex justify-end">
+              <div className="text-right">
+                <div className="font-serif italic text-2xl text-cream opacity-40">Thiru</div>
+                <div className="w-20 h-px ml-auto mt-1" style={{ background: 'rgba(201,168,76,0.3)' }} />
+              </div>
+            </div>
           </div>
         </motion.div>
 
-        {/* Stats Cards */}
-        <div className="flex flex-col gap-4">
+        {/* Stats pedestals */}
+        <div className="lg:col-span-2 flex flex-col gap-4">
           {stats.map((stat, i) => (
-            <motion.div 
+            <motion.div
               key={i}
               initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-              className="glass-card p-6 flex-1 flex flex-col items-center justify-center text-center group hover:scale-105 transition-transform duration-300"
+              className="museum-card p-6 flex items-center gap-5 spotlight-hover"
             >
-              <div className={`text-4xl font-black bg-gradient-to-r ${stat.color} bg-clip-text text-transparent mb-2`}>{stat.value}</div>
-              <div className="text-gray-400 text-sm font-medium">{stat.label}</div>
+              <div className="text-4xl font-serif font-black" style={{ color: stat.color }}>
+                {stat.value}
+              </div>
+              <div>
+                <div className="font-sans text-cream text-sm font-semibold">{stat.label}</div>
+                <div className="font-mono text-[9px] tracking-[0.15em] text-cream-dim uppercase mt-0.5">{stat.sub}</div>
+              </div>
             </motion.div>
           ))}
+
+          {/* About Me */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }} transition={{ delay: 0.4 }}
+            className="museum-card p-6 relative"
+          >
+            <div className="hall-label mb-3">About</div>
+            <p className="font-sans text-cream-muted text-sm leading-relaxed">
+              I love turning complex problems into simple, beautiful solutions. Writing clean code that makes a real impact is what drives me every day.
+            </p>
+          </motion.div>
         </div>
       </div>
 
       {/* Traits row */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }} transition={{ delay: 0.3 }}
-        className="mt-6 glass-card p-6 flex flex-wrap justify-around gap-6 hover:border-brand-blue/30 transition-colors duration-500"
+        className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4"
       >
-        {[
-          { icon: <Terminal size={20} />, text: 'Clean Code Advocate', color: 'text-brand-cyan' },
-          { icon: <Sparkles size={20} />, text: 'Problem Solver', color: 'text-brand-orange' },
-          { icon: <Globe size={20} />, text: 'Full-Stack Oriented', color: 'text-brand-purple' },
-        ].map((t, i) => (
-          <div key={i} className="flex items-center gap-3 text-gray-300">
-            <span className={t.color}>{t.icon}</span>
-            <span className="font-medium">{t.text}</span>
+        {traits.map((trait, i) => (
+          <div key={i} className="museum-card p-5 spotlight-hover text-center">
+            <div className="font-serif text-base font-bold text-cream mb-2">{trait.title}</div>
+            <p className="font-sans text-cream-dim text-xs leading-relaxed">{trait.desc}</p>
           </div>
         ))}
+      </motion.div>
+
+      {/* Quote */}
+      <motion.div
+        initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+        className="mt-10 text-center"
+      >
+        <div className="gold-divider mb-6" />
+        <p className="font-serif italic text-cream-muted text-lg">
+          "These tools are my instruments. Every project is a masterpiece."
+        </p>
+        <div className="gold-divider mt-6" />
       </motion.div>
     </div>
   </section>

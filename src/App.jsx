@@ -17,7 +17,7 @@ const sectionVariants = {
 
 function App() {
   return (
-    <div className="bg-dark-bg min-h-screen text-white font-sans overflow-x-hidden">
+    <div className="bg-museum-dark min-h-screen text-cream font-sans overflow-x-hidden relative">
       <Navbar />
       <main>
         <Hero />
