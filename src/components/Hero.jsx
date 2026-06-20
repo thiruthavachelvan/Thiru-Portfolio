@@ -112,7 +112,7 @@ const Hero = () => {
       <div className="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         
         {/* LEFT: Cinematic Scrambled Typography */}
-        <div className="lg:col-span-7 flex flex-col text-left">
+        <div className="lg:col-span-7 flex flex-col text-left pr-4 xl:pr-10">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
@@ -125,7 +125,7 @@ const Hero = () => {
             </span>
           </motion.div>
 
-          <h1 className="font-serif text-cream font-black leading-[1.05] tracking-wide mb-3" style={{ fontSize: 'clamp(2.5rem, 5.5vw, 4.5rem)' }}>
+          <h1 className="font-serif text-cream font-black leading-[1.05] tracking-wide mb-3 break-words" style={{ fontSize: 'clamp(2.2rem, 4.5vw, 4rem)', wordBreak: 'break-word' }}>
             <ScrambleText text="THIRUTHAVACHELVAN K" delay={300} />
           </h1>
 
